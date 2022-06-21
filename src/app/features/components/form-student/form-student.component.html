@@ -1,0 +1,37 @@
+<div class="container">
+    <h2>Formulario registro alumno</h2>
+    <form [formGroup]="studentForm">
+        <div class="group">
+            <label for="">Nombre</label>
+            <input type="text" formControlName="name">
+            <small class="invalid" *ngIf="studentForm.get('name')?.errors?.required && studentForm.get('name')?.touched">
+                Debe ingresar un dato
+            </small>
+        </div>
+        <div class="group">
+            <label for="">Apellido</label>
+            <input type="text" formControlName="lastname">
+            <small class="invalid" *ngIf="studentForm.get('lastname')?.errors?.required && studentForm.get('lastname')?.touched">
+                Debe ingresar un dato
+            </small>
+        </div>
+        <div class="group">
+            <label for="">E-mail</label>
+            <input type="email" formControlName="email">
+            <small class="invalid" *ngIf="studentForm.get('email')?.errors?.required && studentForm.get('email')?.touched">
+                Debe ingresar una dirección de e-mail
+            </small>
+            <small class="invalid" *ngIf="studentForm.get('email')?.errors?.email && studentForm.get('email')?.touched">Dirección no válida</small>
+        </div>
+        <div class="group">
+            <label for="">Fecha de Nacimiento</label>
+            <input type="date" formControlName="birthDate">
+            <small class="invalid" *ngIf="studentForm.get('birthDate')?.errors?.required && studentForm.get('birthDate')?.touched">
+                Debe ingresar una fecha correcta
+            </small>
+        </div>
+        <div class="group-actions">
+            <button [disabled]="studentForm.invalid">Añadir</button>
+        </div>
+    </form>
+</div>
